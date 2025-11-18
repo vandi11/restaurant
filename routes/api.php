@@ -15,7 +15,10 @@ Route::get("/teszt", function(){
 
 });
 
+/* */
+Route::get("/foods", [MenuItemController::class, "getFoods"]);
+Route::get("/catfoods", [MenuItemController::class, "getFoodsWithCategory]);
 
-Route::get("/foods", [MenuItemController::class, "getFoods"]);
-Route::get("/foods", [MenuItemController::class, "getFoods"]);
+Route::get("/food", [MenuItemController::class, "getFood"]);
 Route::get("/testfoods", [MenuItemController::class, "food"]);
+Route::get("/food", [MenuItemController::class, "getFood"]);
