@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\api\ProbaController;
+use App\Http\Controllers\api\MenuItemController;
 
 
 Route::get('/user', function (Request $request) {
@@ -16,4 +16,6 @@ Route::get("/teszt", function(){
 });
 
 
-Route::get( "/proba", [ ProbaController::class, "proba" ] );
+Route::get("/foods", [MenuItemController::class, "getFoods"]);
+Route::get("/foods", [MenuItemController::class, "getFoods"]);
+Route::get("/testfoods", [MenuItemController::class, "food"]);
