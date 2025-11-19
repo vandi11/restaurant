@@ -4,6 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+use function Laravel\Prompts\table;
+
 return new class extends Migration
 {
     /**
@@ -11,15 +13,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sales', function (Blueprint $table) {
+        Schema::create('menuitems', function (Blueprint $table) {
             $table->id();
-            $table->foreignId( "menuitem_id" );
-            $table->foreignId( "user_id");
-            $table->date( "date");
-            $table->time( "time");
-            $table->integer( "quantity");
-            $table->integer("totalrevenue");
-
+            $table->string("name", 50);
+            $table->foreignId("category_id");
+            $table->integer("price");
+            $table->timestamps();
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sales');
+        Schema::dropIfExists('menuitems');
     }
 };
