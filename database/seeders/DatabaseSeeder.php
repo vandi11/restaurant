@@ -20,8 +20,6 @@ class DatabaseSeeder extends Seeder
             MenuitemSeeder::class,
             UserSeeder::class,
             SaleSeeder::class,
-        ])
-       
+        ]);
     }
-
 }
