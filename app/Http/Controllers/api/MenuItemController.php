@@ -30,6 +30,7 @@ class MenuItemController extends Controller
         //$food = DB::table("menuitems") -> where("id", 9) ->where("name", "Tiramisu") ->first();
 
         $food = DB::table("menuitems")->select("name as Név", "price as Ár")->where("id",  9)->first();
+
         return $food;
     }
 
@@ -38,10 +39,11 @@ class MenuItemController extends Controller
         $foods = DB::table("menuitems")->select(
             "menuitems.name as Név",
             "menuitems.price as Ár",
-            "categories.name  as Kategória"
+            "categories.name as Kategória"
         )
-            ->join("categories", "menitems.category_id", "=", "categories.id")
+            ->join("categories", "menuitems.category_id", "=", "categories.id")
             ->orderBy("categories.name")->get();
+
         return $foods;
     }
 
@@ -72,7 +74,6 @@ class MenuItemController extends Controller
     public function destroyFood()
     {
         $food = DB::table("menuitems")->where("id", 21)->delete();
-
 
         return "Sikeres törlés";
     }
